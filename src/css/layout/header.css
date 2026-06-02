@@ -36,10 +36,6 @@ header{
   
 }
 .login_user {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
 }
 
 .login_user_button {
@@ -78,3 +74,38 @@ header{
     height: 125px;
     
 }
+
+.dropdown-item-Password, .dropdown-item-User {
+  justify-content: center;
+  display: flex;
+  list-style-type: none;
+  margin: 10px;
+  border-radius: 10px;
+ 
+}
+li {
+  list-style-type: none;
+}
+.dropdown-item-Password input, .dropdown-item-User input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  border: #1e293b solid 1px;
+}
+.dropdown-item-Password :placeholder-shown, .dropdown-item-User :placeholder-shown {
+  text-align: center;
+}
+
+.button_login_cd{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+}
+
