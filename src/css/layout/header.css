@@ -48,45 +48,33 @@ header{
   display: flex;
   
 }
-.tittle_main {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  
+.title_main_As{
+  font-weight: bold;
+  font-family: "Arimo", sans-serif;
 }
-.logo_aetherion {
-  width: 100px;
-  height: 100px;
-  max-width: 200px;
-  
-}
+
+
 .header-main {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-
+      justify-content: space-between;
     width: 100%;
-    padding: 15px 30px;
+    padding: 1px 32px;
 }
 
 .title_main {
     display: flex;
     align-items: center;
-
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 .title_main h1 {
-    margin: 0;
-    font-size: 1.7rem;
-    color: black  
+    font-size: 1.2rem;
+    color: black;
+    margin-bottom: 15px;
 }
 
 .logo_aetherion {
-    width: 75px;
-    height: 75px;
-    margin-top: 5%;
+    width: 125px;
+    height: 125px;
     
 }

@@ -6,7 +6,7 @@ const ctx = document.getElementById("dashboardChart");
 const ctxOnline = document.getElementById('dashboardChart-online');
 
 const funcionariosOnline = 1;
-const funcionariosOffline = 0;
+const funcionariosOffline = 2;
 
 const dbCOnline = new Chart(ctxOnline, {
   type: "pie",
