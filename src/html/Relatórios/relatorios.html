@@ -1,0 +1,116 @@
+<!doctype html>
+
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relatórios</title>
+    <link rel="stylesheet" href="/src/css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="title-pages">
+      <div class="title_main">
+        <img
+          src="/src/images/A.svg"
+          alt="Logo da Aetherion"
+          class="logo_aetherion"
+        />
+        <h1 class="title_main_As">Relatórios</h1>
+        <h2 class="Home-tittle"><a href="/index.html">Home</a></h2>
+      </div>
+    </div>
+
+
+<div class="conteudoMain">
+  <div class="input-clientes">
+
+    <button
+      id="loginButtonRelatorio"
+      type="button"
+      class="btn btn-secondary"
+      data-bs-toggle="modal"
+      data-bs-target="#loginModal"
+    >
+      Adicionar Relatório
+    </button>
+
+  </div>
+</div>
+
+
+<div
+  class="modal fade"
+  id="loginModal"
+  tabindex="-1"
+  aria-labelledby="loginModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">
+          Adicionar Relatório
+        </h5>
+
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Fechar"
+        ></button>
+      </div>
+
+      <div class="modal-body">
+        <div class="dropdown login_user">
+
+          <li class="dropdown-item-User">
+            <input
+              id="name_relatorio"
+              type="text"
+              placeholder="Nome do Relatório"
+            >
+          </li>
+
+          <li class="dropdown-item-User">
+            <input
+              id="responsavel_relatorio"
+              type="text"
+              placeholder="Responsável pelo Relatório"
+            >
+          </li>
+
+          <li class="dropdown-item-User">
+            <input
+              id="email_relatorio"
+              type="email"
+              placeholder="Email para contato"
+            >
+          </li>
+
+          <button
+            id="button_relatorio"
+            class="btn btn-primary button_login_cd"
+          >
+            Adicionar Relatório
+          </button>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  defer
+></script>
+
+
+  </body>
+</html>

@@ -49,22 +49,22 @@
 
         <div class="offcanvas-body">
           <button class="btn btn-light menu-btn">
-            <a href="src/html/projetos.html">Projetos</a>
+            <a href="src/html/projetos/projetos.html">Projetos</a>
           </button>
           <button class="btn btn-light menu-btn">
-            <a href="src/html/client.html">Clientes</a>
+            <a href="src/html/cliente/client.html">Clientes</a>
           </button>
           <button class="btn btn-light menu-btn">
-            <a href="src/html/colaboradores.html">Colaboradores</a>
+            <a href="src/html/colaboradores/colaboradores.html">Colaboradores</a>
           </button>
           <button class="btn btn-light menu-btn">
-            <a href="src/html/financeiro.html">Financeiro</a>
+            <a href="src/html/Finanças/financeiro.html">Financeiro</a>
           </button>
           <button class="btn btn-light menu-btn">
-            <a href="src/html/relatorios.html">Relatórios</a>
+            <a href="src/html/Relatórios/relatorios.html">Relatórios</a>
           </button>
           <button class="btn btn-light menu-btn">
-            <a href="src/html/configuracoes.html">Configurações</a>
+            <a href="src/html/configurações/configuracoes.html">Configurações</a>
           </button>
 
           <nav class="navbar bg-body-tertiary pe-nav">
@@ -117,7 +117,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="loginModalLabel">Login</h5>
+            <h5 class="modal-title" id="loginModalLabel">Conta</h5>
             <button
               type="button"
               class="btn-close"
@@ -127,10 +127,17 @@
           </div>
           <div class="modal-body">
             <div class="dropdown login_user">
-              
-              <li><a class="dropdown-item-User" ><input type="email" placeholder="Email"></a></li>
-              <li><a class="dropdown-item-Password" ><input type="password" placeholder="Senha"></a></li> 
-              <button class="btn btn-primary button_login_cd">Entrar</button>
+              <li class="dropdown-item-User" ><input id="email_login" type="email" placeholder="Email"></li>
+              <li class="dropdown-item-Password" ><input id="password_login" type="password" placeholder="Senha">
+              <button class="ver_Senha" id="password_show"><img src="/src/images/view.png" alt="verSenha"></button>
+              </li> 
+
+              <button id="button_login" class="btn btn-primary button_login_cd">Logar</button>
+            
+              <!-- AQUI FAÇO A FUNÇÃO DE CADASTRO APÓS -->
+               <button type="button" id="button_cadastro" class="btn btn-primary button_cadastro" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Cadastro
+</button>
             </div>
           </div>
         </div>
@@ -205,24 +212,24 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/src/script/app.js" defer></script>
     <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Launch static backdrop modal
-</button>
+
 
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <h1 class="modal-title fs-5 " id="staticBackdropLabel button_cadastro">Cadastro</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        ...
+      <div class="modal-body cadastro">
+        <input id="input_cadastro" placeholder=" Nome" type="text">
+        <input id="input_cadastro" type="email" name="email" id="email_cadastro" placeholder=" Email">
+      <input id="input_cadastro" placeholder=" Senha" type="text">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
+        <button type="button" class="btn btn-primary">Confirmar</button>
       </div>
     </div>
   </div>
