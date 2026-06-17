@@ -1,9 +1,24 @@
-let clientes = +document.getElementById("cont_client").textContent;
-let projetos = +document.getElementById("cont_proj").textContent;
-let faturamento = +document.getElementById("cont_fat").textContent;
-let empregados = +document.getElementById("cont_emp").textContent;
+const clientesStorage =
+  JSON.parse(localStorage.getItem("clientes")) || [];
+
+const projetosStorage =
+  JSON.parse(localStorage.getItem("projetos")) || [];
+
+const faturamentoStorage =
+  JSON.parse(localStorage.getItem("faturamento")) || [];
+
+const empregadosStorage =
+  JSON.parse(localStorage.getItem("empregados")) || [];
+
+let clientes = clientesStorage.length;
+let projetos = projetosStorage.length;
+let faturamento = faturamentoStorage.length;
+let empregados = empregadosStorage.length;
+
 
 const password = document.getElementById("password_show");
+
+
 
 password.addEventListener("click", function () {
   const passwordInput = document.querySelector(".dropdown-item-Password input");
@@ -93,3 +108,10 @@ button_login.addEventListener("click", () => {
   logado = true;
   
 });
+
+
+
+function atualizarContador() {
+  document.getElementById("cont_clientes").textContent = clientes.length;
+}
+atualizarContador()

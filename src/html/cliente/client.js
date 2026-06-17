@@ -1,72 +1,107 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const tabela = document.getElementById("clientesTable");
+  const buttonAdd = document.getElementById("button_login");
 
-    const tabela = document.getElementById("clientesTable");
-    const buttonAdd = document.getElementById("button_login");
+  // Carrega clientes salvos
+  let clientes = JSON.parse(localStorage.getItem("clientes")) || [];
 
-    // Carrega clientes salvos
-    let clientes = JSON.parse(localStorage.getItem("clientes")) || [];
+  // Função para desenhar um cliente na tabela
+  function adicionarLinha(cliente) {
+    const novaLinha = document.createElement("tr");
 
-    // Função para desenhar um cliente na tabela
-    function adicionarLinha(cliente) {
-        const novaLinha = document.createElement("tr");
+    novaLinha.innerHTML = `
+      <td>${cliente.nome}</td>
+      <td>${cliente.telefone}</td>
+      <td>${cliente.email}</td>
+      <td>
+        <button class="btn btn-danger btn-sm remover">
+          Remover
+        </button>
+      </td>
+    `;
 
-        novaLinha.innerHTML = `
-            <td>${cliente.nome}</td>
-            <td>${cliente.telefone}</td>
-            <td>${cliente.email}</td>
-        `;
+    // Evento do botão remover
+    const botaoRemover = novaLinha.querySelector(".remover");
 
-        tabela.appendChild(novaLinha);
+    botaoRemover.addEventListener("click", () => {
+      novaLinha.remove();
+
+      clientes = clientes.filter(
+        (c) =>
+          !(
+            c.nome === cliente.nome &&
+            c.telefone === cliente.telefone &&
+            c.email === cliente.email
+          ),
+      );
+
+      localStorage.setItem("clientes", JSON.stringify(clientes));
+    });
+
+    tabela.appendChild(novaLinha);
+  }
+
+  clientes.forEach((cliente) => {
+    adicionarLinha(cliente);
+  });
+
+  buttonAdd.addEventListener("click", () => {
+    const nome = document.getElementById("name_client").value.trim();
+    const telefone = document.getElementById("number_client").value.trim();
+    const email = document.getElementById("email_client").value.trim();
+
+    if (!nome || !telefone || !email) {
+      alert("Preencha todos os campos!");
+      return;
     }
 
-    // Monta a tabela ao abrir a página
-    clientes.forEach(cliente => {
-        adicionarLinha(cliente);
-    });
+    if (telefone.length < 10 || telefone.length > 11) {
+      alert("Número de telefone inválido");
+      return;
+    }
+    const nomeEx = clientes.some(
+      (c) => c.nome.toLowerCase() === nome.toLowerCase(),
+    );
 
-    // Evento do botão
-    buttonAdd.addEventListener("click", () => {
+    if (nomeEx) {
+      alert("Já existe um cliente com esse nome!");
+      return;
+    }
+    const telefoneEx = clientes.some((c) => c.telefone === telefone);
 
-        const nome = document.getElementById("name_client").value.trim();
-        const telefone = document.getElementById("number_client").value.trim();
-        const email = document.getElementById("email_client").value.trim();
+    if (telefoneEx) {
+      alert("Esse Número já existe");
+      return;
+    }
+    const emailEx = clientes.some(
+      (c) => c.email.toLowerCase() === email.toLowerCase(),
+    );
+    if (emailEx) {
+      alert("Esse email já está sendo utilizado, por favor tente usar outro!");
+      return;
+    }
 
-        if (!nome || !telefone || !email) {
-            alert("Preencha todos os campos!");
-            return;
-        }
+    const novoCliente = {
+      nome,
+      telefone,
+      email,
+    };
 
-        const novoCliente = {
-            nome,
-            telefone,
-            email
-        };
+    adicionarLinha(novoCliente);
 
-        // Adiciona na tabela
-        adicionarLinha(novoCliente);
+    clientes.push(novoCliente);
+    localStorage.setItem("clientes", JSON.stringify(clientes));
 
-        // Adiciona no array
-        clientes.push(novoCliente);
+    document.getElementById("name_client").value = "";
+    document.getElementById("number_client").value = "";
+    document.getElementById("email_client").value = "";
 
-        // Salva no localStorage
-        localStorage.setItem(
-            "clientes",
-            JSON.stringify(clientes)
-        );
+    const modal = bootstrap.Modal.getInstance(
+      document.getElementById("loginModal"),
+    );
 
-        // Limpa os campos
-        document.getElementById("name_client").value = "";
-        document.getElementById("number_client").value = "";
-        document.getElementById("email_client").value = "";
-
-        // Fecha o modal
-        const modal = bootstrap.Modal.getInstance(
-            document.getElementById("loginModal")
-        );
-
-        if (modal) {
-            modal.hide();
-        }
-    });
-
+    if (modal) {
+      modal.hide();
+    }
+  });
 });
